@@ -24,21 +24,24 @@ public class TestGetMovie_NowPlaying {
                 .get(endpoint)
                 .then()
                 .statusCode(200)
+                .body("results.title[0]", equalTo("Land of Bad"))
                 .log().all();
     }
 
+    //Negative case ----------------------------------------------------------------
     @Test
     public void testGetMovieNowPlayingId() {
 
         given()
-                .header("Authorization", token)
-                .when()
                 .get(endpoint)
                 .then()
                 .statusCode(200)
-                .body("results-id[0]",equalTo(1072790));
+                .body("results-id[1]",equalTo(1072790));
 
     }
+
+
+
 
 
 

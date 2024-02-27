@@ -35,6 +35,20 @@ public class TestGetMovie_Popular {
                 .body("original_title",equalTo("Land of Bad"));
 
     }
+
+
+//Negative case ----------------------------------------------------------------
+
+    @Test
+    public void testGetMoviePopularNegative() {
+
+        given()
+                .get(endpoint)
+                .then()
+                .statusCode(401)
+                .log().all();
+    }
+
 }
 
 
